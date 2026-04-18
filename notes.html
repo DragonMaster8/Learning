@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Notes - Learn C# Programming</title>
+    <meta name="description" content="Complete C# programming notes covering .NET, fundamentals, OOP, collections, multithreading, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">C#</div>
+            <div class="nav-logo-text">Learn <span>C#</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="notes.html" class="active">Notes</a></li>
+            <li><a href="quiz.html">Practice Test</a></li>
+        </ul>
+        <span class="nav-badge">Updated Jul 12, 2025</span>
+        <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+    </div>
+</nav>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+    <div class="toc-title">Table of Contents</div>
+    <a href="#intro"><span class="num">01</span> What is C#?</a>
+    <a href="#first-program"><span class="num">02</span> First Program</a>
+    <a href="#history"><span class="num">03</span> History</a>
+    <a href="#dotnet"><span class="num">04</span> .NET Framework</a>
+    <a href="#dotnet-clr" class="sub">CLR</a>
+    <a href="#dotnet-fcl" class="sub">FCL</a>
+    <a href="#dotnet-gc" class="sub">Garbage Collector</a>
+    <a href="#dotnet-jit" class="sub">JIT Compiler</a>
+    <a href="#visual-studio"><span class="num">05</span> Visual Studio</a>
+    <a href="#why-csharp"><span class="num">06</span> Why C#?</a>
+    <a href="#fundamentals"><span class="num">07</span> Fundamentals</a>
+    <a href="#identifiers" class="sub">Identifiers</a>
+    <a href="#keywords" class="sub">Keywords</a>
+    <a href="#variables" class="sub">Variables</a>
+    <a href="#literals" class="sub">Literals</a>
+    <a href="#data-types" class="sub">Data Types</a>
+    <a href="#operators" class="sub">Operators</a>
+    <a href="#enums" class="sub">Enumerations</a>
+    <a href="#decision-making"><span class="num">08</span> Decision Making</a>
+    <a href="#switch"><span class="num">09</span> Switch</a>
+    <a href="#loops"><span class="num">10</span> Loops</a>
+    <a href="#jump-statements"><span class="num">11</span> Jump Statements</a>
+    <a href="#arrays"><span class="num">12</span> Arrays</a>
+    <a href="#strings"><span class="num">13</span> Strings</a>
+    <a href="#access-modifiers"><span class="num">14</span> Access Modifiers</a>
+    <a href="#oop"><span class="num">15</span> OOP</a>
+    <a href="#class-object" class="sub">Class &amp; Object</a>
+    <a href="#constructors" class="sub">Constructors</a>
+    <a href="#destructors" class="sub">Destructors</a>
+    <a href="#inheritance" class="sub">Inheritance</a>
+    <a href="#encapsulation" class="sub">Encapsulation</a>
+    <a href="#polymorphism" class="sub">Polymorphism</a>
+    <a href="#methods"><span class="num">16</span> Methods</a>
+    <a href="#method-overloading" class="sub">Overloading</a>
+    <a href="#method-overriding" class="sub">Overriding</a>
+    <a href="#method-hiding" class="sub">Hiding</a>
+    <a href="#collections"><span class="num">17</span> Collections</a>
+    <a href="#properties"><span class="num">18</span> Properties</a>
+    <a href="#indexers"><span class="num">19</span> Indexers</a>
+    <a href="#interfaces"><span class="num">20</span> Interfaces</a>
+    <a href="#multithreading"><span class="num">21</span> Multithreading</a>
+    <a href="#regex"><span class="num">22</span> Regex</a>
+    <a href="#exceptions"><span class="num">23</span> Exception Handling</a>
+</aside>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="content-with-sidebar">
+
+<!-- HERO -->
+<div class="hero" id="intro">
+    <h2><span class="section-num">01.</span> What is C#?</h2>
+    <div class="section-line"></div>
+    <p>Think of <strong>C#</strong> (pronounced "C-sharp") as Microsoft's answer to Java. It's a modern, object-oriented programming language that lets you build just about anything &mdash; from websites and desktop apps to mobile apps and video games. Microsoft created it, and some of the biggest names in tech (Microsoft, Stack Overflow, Unity) rely on it every single day.</p>
+    <p>The latest version is <strong>C# 12.0</strong>, and it keeps getting better with each release. If you already know a bit of C, C++, or Java, you'll feel right at home.</p>
+    <div class="hero-stats">
+        <div class="hero-stat"><div class="val">2002</div><div class="lbl">First Released</div></div>
+        <div class="hero-stat"><div class="val">12.0</div><div class="lbl">Latest Version</div></div>
+        <div class="hero-stat"><div class="val">60+</div><div class="lbl">Languages on .NET</div></div>
+    </div>
+</div>
+
+<!-- FIRST PROGRAM -->
+<section class="card" id="first-program">
+    <h2><span class="section-num">02.</span> Writing Your First Program</h2>
+    <div class="section-line"></div>
+    <p>Every programmer's journey starts with "Hello, World!" &mdash; it's a tradition. Here's what that looks like in C#. Don't worry if the syntax looks unfamiliar; we'll break everything down in later sections.</p>
+<pre><span class="kw">using</span> <span class="tp">System</span>;
+
+<span class="kw">namespace</span> HelloWorld
+{
+    <span class="kw">class</span> <span class="tp">Program</span>
+    {
+        <span class="kw">static void</span> Main(<span class="kw">string</span>[] args)
+        {
+            <span class="tp">Console</span>.WriteLine(<span class="str">"Hello, World!"</span>);
+        }
+    }
+}</pre>
+    <div class="output-box">Hello, World!</div>
+    <div class="callout callout-blue">
+        <div class="callout-icon">&#128161;</div>
+        <div><strong>What's happening here?</strong> The <code>using System;</code> line imports built-in tools. <code>namespace</code> organizes your code. <code>class</code> is a container for methods. <code>Main()</code> is the entry point &mdash; the very first thing that runs.</div>
+    </div>
+</section>
+
+<!-- HISTORY -->
+<section class="card" id="history">
+    <h2><span class="section-num">03.</span> A Quick History</h2>
+    <div class="section-line"></div>
+    <p>C# was born out of necessity. In the late 1990s, Microsoft needed a language combining the power of C++ with the simplicity of Visual Basic. <strong>Anders Hejlsberg</strong> (who also created Turbo Pascal and TypeScript) led the team that designed it.</p>
+    <ul>
+        <li>Developed under Microsoft's <strong>.NET initiative</strong></li>
+        <li>Standardized by <strong>ECMA</strong> and <strong>ISO</strong></li>
+        <li>First version released in <strong>2002</strong> alongside Visual Studio .NET</li>
+        <li>Closely related to C/C++ and Java in syntax and philosophy</li>
+    </ul>
+    <div class="callout callout-yellow">
+        <div class="callout-icon">&#9888;&#65039;</div>
+        <div><strong>Keep in mind:</strong> C# 12.0 (released November 2023) is the latest version. Each new version adds features that make coding easier and more expressive.</div>
+    </div>
+</section>
+
+<!-- .NET FRAMEWORK -->
+<section class="card" id="dotnet">
+    <h2><span class="section-num">04.</span> .NET Framework &amp; Its Components</h2>
+    <div class="section-line"></div>
+    <p>Before your C# code can run, it needs a "platform" to live on. That platform is <strong>.NET</strong> &mdash; a software framework by Microsoft that acts like a middleman between your code and the operating system. Think of it as a translator that takes your C# instructions and turns them into something the computer actually understands.</p>
+    <p>.NET supports <strong>60+ programming languages</strong>, but C# and VB.NET are the main ones. The first version (1.0) shipped in 2002.</p>
+
+    <h3 id="dotnet-clr">Common Language Runtime (CLR)</h3>
+    <p>The CLR is the <strong>engine</strong> of .NET. When you run a C# program, the CLR actually executes it. It doesn't care which .NET language you wrote in &mdash; it treats them all the same. It also handles memory, security, and errors behind the scenes.</p>
+    <ul>
+        <li><strong>Managed Code</strong> &mdash; Runs inside the CLR with garbage collection and type safety.</li>
+        <li><strong>Unmanaged Code</strong> &mdash; Runs directly on the OS, bypassing CLR. Faster but riskier.</li>
+    </ul>
+
+    <h3 id="dotnet-fcl">Framework Class Library (FCL)</h3>
+    <p>Imagine a massive toolbox filled with pre-built tools for every common task &mdash; reading files, connecting to databases, making web requests. That's the FCL. It's a huge collection of reusable classes and methods you can plug into your code instead of building everything from scratch.</p>
+
+    <h3 id="dotnet-gc">Garbage Collector (GC)</h3>
+    <p>In C++, you manually free memory (and forgetting causes memory leaks). C# solves this with a <strong>Garbage Collector</strong> that automatically detects objects you're no longer using and reclaims that memory. It runs on the <strong>Managed Heap</strong> with an internal optimization engine.</p>
+
+    <h3 id="dotnet-jit">Just-In-Time (JIT) Compiler</h3>
+    <p>Here's how your code becomes executable: First, the C# compiler converts source code into <strong>CIL</strong> (Common Intermediate Language) &mdash; platform-independent instructions. Then at runtime, the JIT compiler converts CIL into <strong>native machine code</strong> optimized for your specific computer. Like a translator who speaks your computer's exact dialect.</p>
+</section>
+
+<!-- VISUAL STUDIO -->
+<section class="card" id="visual-studio">
+    <h2><span class="section-num">05.</span> Visual Studio</h2>
+    <div class="section-line"></div>
+    <p>Visual Studio is Microsoft's all-in-one <strong>IDE</strong> (Integrated Development Environment). It's where you write, debug, and test your C# code &mdash; a super-powered text editor that understands your code, highlights errors, and suggests fixes.</p>
+    <ul>
+        <li>Supports <strong>36+ languages</strong> (C#, C++, Python, JavaScript, etc.)</li>
+        <li>Available for <strong>Windows and macOS</strong></li>
+        <li><strong>Community Edition</strong> is completely free</li>
+    </ul>
+    <div class="callout callout-green">
+        <div class="callout-icon">&#9989;</div>
+        <div><strong>Quick setup:</strong> Download Visual Studio Community &rarr; Run installer &rarr; Select ".NET Desktop Development" workload &rarr; Create new Console App &rarr; Start coding!</div>
+    </div>
+</section>
+
+<!-- WHY C# -->
+<section class="card" id="why-csharp">
+    <h2><span class="section-num">06.</span> Why Choose C#?</h2>
+    <div class="section-line"></div>
+    <ul>
+        <li><strong>Gentle learning curve</strong> &mdash; If you've seen any C-like language, C# feels familiar.</li>
+        <li><strong>Versatile</strong> &mdash; One language for web (ASP.NET), desktop (WPF), mobile (MAUI), and games (Unity).</li>
+        <li><strong>Massive community</strong> &mdash; Millions of developers and endless tutorials.</li>
+        <li><strong>Game development powerhouse</strong> &mdash; Unity uses C# as its primary language.</li>
+        <li><strong>Strong job market</strong> &mdash; Enterprise companies love C# for reliability.</li>
+    </ul>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+        <span class="tag">Web Apps</span><span class="tag">Desktop Apps</span><span class="tag">Game Dev (Unity)</span>
+        <span class="tag">Mobile Apps</span><span class="tag">Cloud / Azure</span><span class="tag">IoT</span><span class="tag">AI / ML</span>
+    </div>
+</section>
+
+<!-- FUNDAMENTALS -->
+<section class="card" id="fundamentals">
+    <h2><span class="section-num">07.</span> C# Fundamentals</h2>
+    <div class="section-line"></div>
+
+    <h3 id="identifiers">Identifiers</h3>
+    <p>An identifier is simply a <strong>name you give to things</strong> &mdash; classes, methods, variables. Think of them as labels on boxes telling you what's inside.</p>
+    <ul>
+        <li>Can contain letters (<code>A-Z</code>, <code>a-z</code>), digits (<code>0-9</code>), and underscore (<code>_</code>)</li>
+        <li>Must NOT start with a digit</li>
+        <li>Cannot be a reserved keyword (unless prefixed with <code>@</code>)</li>
+        <li>Case-sensitive; max 512 characters</li>
+    </ul>
+<pre><span class="kw">public class</span> <span class="tp">Student</span> {        <span class="cm">// "Student" is an identifier</span>
+    <span class="kw">static void</span> Main()         <span class="cm">// "Main" is an identifier</span>
+    {
+        <span class="kw">int</span> age = <span class="num">21</span>;            <span class="cm">// "age" is an identifier</span>
+    }
+}</pre>
+
+    <h3 id="keywords">Keywords</h3>
+    <p>Keywords are <strong>reserved words</strong> that C# has claimed for itself. They have special meanings and you can't use them as your own names. C# has <strong>78 keywords</strong> in total.</p>
+    <p>Common ones: <code>using</code>, <code>namespace</code>, <code>class</code>, <code>public</code>, <code>private</code>, <code>static</code>, <code>void</code>, <code>int</code>, <code>string</code>, <code>bool</code>, <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>return</code>, <code>new</code>, <code>this</code>, <code>null</code>.</p>
+
+    <h3 id="variables">Variables</h3>
+    <p>A variable is like a <strong>labeled container</strong> that holds data. You put something in, give it a name, and refer to it later.</p>
+<pre><span class="kw">char</span> grade = <span class="str">'A'</span>;        <span class="cm">// single character</span>
+<span class="kw">int</span> score = <span class="num">95</span>;          <span class="cm">// whole number</span>
+<span class="kw">double</span> price = <span class="num">19.99</span>;    <span class="cm">// decimal number</span>
+<span class="kw">string</span> name = <span class="str">"Alice"</span>;   <span class="cm">// text</span>
+<span class="kw">bool</span> isPassed = <span class="kw">true</span>;    <span class="cm">// true or false</span></pre>
+    <p><strong>Two ways to initialize:</strong> <em>Compile-time</em> (value set in code) or <em>Run-time</em> (value comes from user input during execution).</p>
+
+    <h3 id="literals">Literals</h3>
+    <p>Literals are <strong>fixed values</strong> written directly in your code. When you write <code>int x = 100;</code>, the <code>100</code> is a literal.</p>
+    <div class="table-wrap">
+    <table>
+        <tr><th>Type</th><th>Example</th><th>Description</th></tr>
+        <tr><td>Integer</td><td><code>101</code></td><td>Whole numbers</td></tr>
+        <tr><td>Floating-point</td><td><code>3.14</code></td><td>Decimal numbers</td></tr>
+        <tr><td>Character</td><td><code>'a'</code></td><td>Single character in quotes</td></tr>
+        <tr><td>String</td><td><code>"Hello"</code></td><td>Text in double quotes</td></tr>
+        <tr><td>Boolean</td><td><code>true</code></td><td>Logical value</td></tr>
+        <tr><td>Null</td><td><code>null</code></td><td>Represents "nothing"</td></tr>
+    </table>
+    </div>
+
+    <h3 id="data-types">Data Types</h3>
+    <p>C# is <strong>strongly typed</strong> &mdash; every variable must declare what kind of data it holds. Data types fall into three categories:</p>
+
+    <h4>1. Value Types &mdash; Stored Directly in Memory</h4>
+    <div class="table-wrap">
+    <table>
+        <tr><th>Type</th><th>Size</th><th>Example</th><th>Suffix</th></tr>
+        <tr><td><code>char</code></td><td>2 bytes</td><td><code>'G'</code></td><td>&mdash;</td></tr>
+        <tr><td><code>int</code></td><td>4 bytes</td><td><code>89</code></td><td>&mdash;</td></tr>
+        <tr><td><code>long</code></td><td>8 bytes</td><td><code>4564L</code></td><td><code>L</code></td></tr>
+        <tr><td><code>float</code></td><td>4 bytes</td><td><code>3.73f</code></td><td><code>f</code></td></tr>
+        <tr><td><code>double</code></td><td>8 bytes</td><td><code>8.35</code></td><td><code>d</code></td></tr>
+        <tr><td><code>decimal</code></td><td>16 bytes</td><td><code>389.5m</code></td><td><code>m</code></td></tr>
+        <tr><td><code>bool</code></td><td>1 byte</td><td><code>true</code></td><td>&mdash;</td></tr>
+    </table>
+    </div>
+
+    <h4>2. Reference Types &mdash; Store a Memory Address</h4>
+    <p>Store a pointer to where the data lives. Built-in: <code>string</code> and <code>object</code>.</p>
+
+    <h4>3. Pointer Types &mdash; Low-Level Memory Access</h4>
+    <p>Hold memory address directly. Requires <code>unsafe</code> context. Uses <code>&amp;</code> (address-of) and <code>*</code> (dereference).</p>
+
+    <h3 id="operators">Operators</h3>
+    <div class="table-wrap">
+    <table>
+        <tr><th>Category</th><th>Operators</th><th>What They Do</th></tr>
+        <tr><td>Arithmetic</td><td><code>+ - * / %</code></td><td>Math operations</td></tr>
+        <tr><td>Relational</td><td><code>== != > < >= <=</code></td><td>Compare values</td></tr>
+        <tr><td>Logical</td><td><code>&& || !</code></td><td>Combine conditions</td></tr>
+        <tr><td>Bitwise</td><td><code>& | ^ ~ << >></code></td><td>Manipulate bits</td></tr>
+        <tr><td>Assignment</td><td><code>= += -= *= /=</code></td><td>Assign values</td></tr>
+        <tr><td>Ternary</td><td><code>? :</code></td><td>Inline if-else</td></tr>
+    </table>
+    </div>
+    <p>By operand count: <strong>Unary</strong> (1 like <code>!</code>), <strong>Binary</strong> (2 like <code>+</code>), <strong>Ternary</strong> (3 like <code>? :</code>).</p>
+
+    <h3 id="enums">Enumerations (enum)</h3>
+    <p>Enums create a <strong>named set of constants</strong>. Instead of remembering "0 = Sunday," you write <code>Day.Sunday</code> and your code becomes self-documenting.</p>
+<pre><span class="kw">enum</span> <span class="tp">Month</span> { Jan, Feb, Mar, Apr, May }
+<span class="cm">// Jan=0, Feb=1, Mar=2, Apr=3, May=4 (auto-assigned)</span>
+
+<span class="tp">Console</span>.WriteLine((<span class="kw">int</span>)<span class="tp">Month</span>.Mar);  <span class="cm">// Output: 2</span></pre>
+    <div class="callout callout-purple">
+        <div class="callout-icon">&#128218;</div>
+        <div>By default, first member = 0, each successive one increments by 1. You can override this: <code>enum Month { Jan = 1, Feb, Mar }</code> makes Jan=1, Feb=2, Mar=3.</div>
+    </div>
+</section>
+
+<!-- DECISION MAKING -->
+<section class="card" id="decision-making">
+    <h2><span class="section-num">08.</span> Decision Making Statements</h2>
+    <div class="section-line"></div>
+    <p>Just like in real life, your program needs to make choices. "If the user is logged in, show the dashboard. Otherwise, show the login page." The main types: <code>if</code>, <code>if-else</code>, <code>if-else-if</code> ladder, and <code>nested if</code>.</p>
+<pre><span class="kw">int</span> i = <span class="num">20</span>;
+
+<span class="kw">if</span> (i == <span class="num">10</span>)
+    <span class="tp">Console</span>.WriteLine(<span class="str">"i is 10"</span>);
+<span class="kw">else if</span> (i == <span class="num">20</span>)
+    <span class="tp">Console</span>.WriteLine(<span class="str">"i is 20"</span>);     <span class="cm">// This runs!</span>
+<span class="kw">else</span>
+    <span class="tp">Console</span>.WriteLine(<span class="str">"not found"</span>);</pre>
+    <div class="output-box">i is 20</div>
+</section>
+
+<!-- SWITCH -->
+<section class="card" id="switch">
+    <h2><span class="section-num">09.</span> Switch Statement</h2>
+    <div class="section-line"></div>
+    <p>When you have many values to check, an <code>if-else-if</code> chain gets ugly. The <code>switch</code> is cleaner &mdash; it takes one expression and jumps directly to the matching case.</p>
+    <div class="callout callout-purple">
+        <div class="callout-icon">&#128218;</div>
+        <div><strong>Rules:</strong> No duplicate cases. Values must be constants. Every case needs a <code>break</code>. The <code>default</code> is optional but recommended.</div>
+    </div>
+<pre><span class="kw">int</span> day = <span class="num">3</span>;
+<span class="kw">switch</span> (day) {
+    <span class="kw">case</span> <span class="num">1</span>: <span class="tp">Console</span>.WriteLine(<span class="str">"Monday"</span>);    <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="num">2</span>: <span class="tp">Console</span>.WriteLine(<span class="str">"Tuesday"</span>);   <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="num">3</span>: <span class="tp">Console</span>.WriteLine(<span class="str">"Wednesday"</span>); <span class="kw">break</span>;
+    <span class="kw">default</span>: <span class="tp">Console</span>.WriteLine(<span class="str">"Other"</span>);   <span class="kw">break</span>;
+}</pre>
+    <div class="output-box">Wednesday</div>
+</section>
+
+<!-- LOOPS -->
+<section class="card" id="loops">
+    <h2><span class="section-num">10.</span> Loops</h2>
+    <div class="section-line"></div>
+    <p>Loops tell the computer to repeat something. Instead of writing the same line 100 times, write it once inside a loop.</p>
+    <ul>
+        <li><strong>Entry-controlled</strong> (<code>while</code>, <code>for</code>) &mdash; Condition checked first. May never run.</li>
+        <li><strong>Exit-controlled</strong> (<code>do-while</code>) &mdash; Runs at least once, then checks.</li>
+    </ul>
+    <h3>while Loop</h3>
+<pre><span class="kw">int</span> x = <span class="num">1</span>;
+<span class="kw">while</span> (x &lt;= <span class="num">4</span>) {
+    <span class="tp">Console</span>.WriteLine(<span class="str">"Count: "</span> + x);
+    x++;
+}</pre>
+    <h3>do-while Loop</h3>
+<pre><span class="kw">int</span> x = <span class="num">100</span>;
+<span class="kw">do</span> {
+    <span class="tp">Console</span>.WriteLine(<span class="str">"Runs once!"</span>);
+    x++;
+} <span class="kw">while</span> (x &lt; <span class="num">5</span>);  <span class="cm">// false, but body already ran</span></pre>
+    <h3>for Loop</h3>
+<pre><span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">5</span>; i++)
+    <span class="tp">Console</span>.WriteLine(<span class="str">"Iteration: "</span> + i);</pre>
+    <h3>foreach Loop</h3>
+    <p>The friendliest loop &mdash; walks through every item without needing an index.</p>
+<pre><span class="kw">int</span>[] nums = { <span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span> };
+<span class="kw">foreach</span> (<span class="kw">int</span> n <span class="kw">in</span> nums)
+    <span class="tp">Console</span>.WriteLine(n);</pre>
+</section>
+
+<!-- JUMP STATEMENTS -->
+<section class="card" id="jump-statements">
+    <h2><span class="section-num">11.</span> Jump Statements</h2>
+    <div class="section-line"></div>
+    <p>Sometimes you need to break out of the normal flow &mdash; exit a loop early, skip an iteration, or jump elsewhere.</p>
+    <h3>break</h3>
+    <p>Immediately exits the loop. Like hitting the emergency stop.</p>
+<pre><span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i &lt;= <span class="num">10</span>; i++) {
+    <span class="kw">if</span> (i == <span class="num">5</span>) <span class="kw">break</span>;
+    <span class="tp">Console</span>.Write(i + <span class="str">" "</span>);   <span class="cm">// 1 2 3 4</span>
+}</pre>
+    <h3>continue</h3>
+    <p>Skips the rest of the current iteration and jumps to the next one.</p>
+<pre><span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i &lt;= <span class="num">5</span>; i++) {
+    <span class="kw">if</span> (i == <span class="num">3</span>) <span class="kw">continue</span>;
+    <span class="tp">Console</span>.Write(i + <span class="str">" "</span>);   <span class="cm">// 1 2 4 5</span>
+}</pre>
+    <h3>goto</h3>
+    <p>Jumps to a labeled statement. Useful in <code>switch</code> blocks but discouraged elsewhere.</p>
+    <h3>return</h3>
+    <p>Exits the current method and optionally sends a value back to the caller.</p>
+</section>
+
+<!-- ARRAYS -->
+<section class="card" id="arrays">
+    <h2><span class="section-num">12.</span> Arrays</h2>
+    <div class="section-line"></div>
+    <p>An array is a <strong>collection of items of the same type</strong>, stored in a row. Think of it as a row of mailboxes &mdash; each has a number (index) starting from 0.</p>
+<pre><span class="kw">string</span>[] days = { <span class="str">"Sun"</span>, <span class="str">"Mon"</span>, <span class="str">"Tue"</span>, <span class="str">"Wed"</span>, <span class="str">"Thu"</span>, <span class="str">"Fri"</span>, <span class="str">"Sat"</span> };
+<span class="tp">Console</span>.WriteLine(days[<span class="num">0</span>]);      <span class="cm">// Sun</span>
+<span class="tp">Console</span>.WriteLine(days.Length);  <span class="cm">// 7</span></pre>
+    <div class="output-box">Sun Mon Tue Wed Thu Fri Sat</div>
+    <div class="callout callout-yellow">
+        <div class="callout-icon">&#9888;&#65039;</div>
+        <div>Array sizes are fixed once created. Need a resizable collection? Use <code>List&lt;T&gt;</code> instead.</div>
+    </div>
+</section>
+
+<!-- STRINGS -->
+<section class="card" id="strings">
+    <h2><span class="section-num">13.</span> Strings</h2>
+    <div class="section-line"></div>
+    <p>A string is simply <strong>text</strong>. In C#, strings are objects of <code>System.String</code> and they are <strong>immutable</strong> &mdash; any "modification" creates a new string.</p>
+<pre><span class="kw">string</span> s1 = <span class="str">"Hello"</span>;
+<span class="tp">String</span> s2 = <span class="str">"World"</span>;
+<span class="kw">string</span> full = s1 + <span class="str">" "</span> + s2;  <span class="cm">// "Hello World"</span></pre>
+    <div class="callout callout-blue">
+        <div class="callout-icon">&#128161;</div>
+        <div><code>string</code> (lowercase) and <code>String</code> (uppercase) are identical &mdash; both alias <code>System.String</code>.</div>
+    </div>
+</section>
+
+<!-- ACCESS MODIFIERS -->
+<section class="card" id="access-modifiers">
+    <h2><span class="section-num">14.</span> Access Modifiers</h2>
+    <div class="section-line"></div>
+    <p>Access modifiers are like <strong>security badges</strong>. They control who can see and use your classes, methods, and variables.</p>
+    <div class="table-wrap">
+    <table>
+        <tr><th>Scope</th><th>public</th><th>protected</th><th>internal</th><th>private</th></tr>
+        <tr><td>Everywhere</td><td>&#10003;</td><td>&#10007;</td><td>&#10007;</td><td>&#10007;</td></tr>
+        <tr><td>Same class</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+        <tr><td>Same assembly</td><td>&#10003;</td><td>&#10007;</td><td>&#10003;</td><td>&#10007;</td></tr>
+        <tr><td>Derived classes</td><td>&#10003;</td><td>&#10003;</td><td>&#10007;</td><td>&#10007;</td></tr>
+    </table>
+    </div>
+    <p><strong>Rule of thumb:</strong> Make everything as <code>private</code> as possible, and only open it up when needed.</p>
+</section>
+
+<!-- OOP -->
+<section class="card" id="oop">
+    <h2><span class="section-num">15.</span> Object-Oriented Programming</h2>
+    <div class="section-line"></div>
+    <p>OOP organizes code around <strong>objects</strong> rather than actions. The four pillars: <strong>Encapsulation</strong>, <strong>Inheritance</strong>, <strong>Polymorphism</strong>, and <strong>Abstraction</strong>.</p>
+
+    <h3 id="class-object">Class &amp; Object</h3>
+    <p>A <strong>class</strong> is a blueprint (architect's plan). An <strong>object</strong> is a specific instance (an actual house). Define the structure once, then create as many objects as you need.</p>
+<pre><span class="kw">public class</span> <span class="tp">Dog</span> {
+    <span class="kw">public string</span> Name;
+    <span class="kw">public int</span> Age;
+
+    <span class="kw">public</span> <span class="tp">Dog</span>(<span class="kw">string</span> name, <span class="kw">int</span> age) {
+        Name = name; Age = age;
+    }
+}
+<span class="tp">Dog</span> buddy = <span class="kw">new</span> <span class="tp">Dog</span>(<span class="str">"Buddy"</span>, <span class="num">3</span>);</pre>
+
+    <h3 id="constructors">Constructors</h3>
+    <p>A <strong>special method that runs automatically</strong> when you create an object. Same name as the class, no return type.</p>
+
+    <h3 id="destructors">Destructors</h3>
+    <p>Opposite of constructors &mdash; run when an object is garbage collected. Defined with <code>~ClassName()</code>. Rarely needed because GC handles cleanup.</p>
+
+    <h3 id="inheritance">Inheritance</h3>
+    <p>Create a <strong>new class based on an existing one</strong>. The child gets all parent features for free and can add its own.</p>
+<pre><span class="kw">class</span> <span class="tp">Animal</span> {
+    <span class="kw">public void</span> Eat() { <span class="tp">Console</span>.WriteLine(<span class="str">"Eating..."</span>); }
+}
+<span class="kw">class</span> <span class="tp">Dog</span> : <span class="tp">Animal</span> {
+    <span class="kw">public void</span> Bark() { <span class="tp">Console</span>.WriteLine(<span class="str">"Woof!"</span>); }
+}
+<span class="tp">Dog</span> d = <span class="kw">new</span> <span class="tp">Dog</span>();
+d.Eat();   <span class="cm">// inherited</span>
+d.Bark();  <span class="cm">// own method</span></pre>
+
+    <h3 id="encapsulation">Encapsulation</h3>
+    <p><strong>Hiding internal details</strong> and exposing only what's necessary. Make variables <code>private</code>, provide controlled access through properties. Like a vending machine &mdash; you interact through buttons, not by reaching inside.</p>
+
+    <h3 id="polymorphism">Polymorphism</h3>
+    <p>Means <strong>"many forms."</strong> One method name, different behaviors depending on context:</p>
+    <ul>
+        <li><strong>Compile-time</strong> (method overloading) &mdash; same name, different parameters</li>
+        <li><strong>Run-time</strong> (method overriding) &mdash; child redefines parent's method via <code>virtual</code>/<code>override</code></li>
+    </ul>
+</section>
+
+<!-- METHODS -->
+<section class="card" id="methods">
+    <h2><span class="section-num">16.</span> Methods</h2>
+    <div class="section-line"></div>
+    <p>Methods are <strong>reusable blocks of code</strong>. Write the logic once, call it whenever needed.</p>
+<pre><span class="kw">static int</span> Add(<span class="kw">int</span> a, <span class="kw">int</span> b) {
+    <span class="kw">return</span> a + b;
+}
+<span class="kw">int</span> result = Add(<span class="num">12</span>, <span class="num">23</span>);  <span class="cm">// 35</span></pre>
+
+    <h3 id="method-overloading">Method Overloading</h3>
+    <p>Same name, <strong>different parameter lists</strong>. Compiler picks the right version. Compile-time polymorphism.</p>
+<pre><span class="kw">int</span> Add(<span class="kw">int</span> a, <span class="kw">int</span> b)         { <span class="kw">return</span> a + b; }
+<span class="kw">int</span> Add(<span class="kw">int</span> a, <span class="kw">int</span> b, <span class="kw">int</span> c)  { <span class="kw">return</span> a + b + c; }</pre>
+
+    <h3 id="method-overriding">Method Overriding</h3>
+    <p>Derived class <strong>replaces</strong> parent's method. Parent uses <code>virtual</code>, child uses <code>override</code>. Run-time polymorphism.</p>
+
+    <h3 id="method-hiding">Method Hiding</h3>
+    <p>Uses <code>new</code> keyword to hide a parent method instead of overriding it. Also called <strong>Method Shadowing</strong>.</p>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="card" id="collections">
+    <h2><span class="section-num">17.</span> Collections</h2>
+    <div class="section-line"></div>
+    <p>Collections are <strong>containers for groups of objects</strong> with built-in methods for adding, removing, and searching. Live in <code>System.Collections</code>.</p>
+    <h3>ArrayList</h3>
+    <p>A <strong>dynamic array</strong> that grows as you add items. Can hold any type (not type-safe).</p>
+    <h3>Hashtable</h3>
+    <p>Stores <strong>key-value pairs</strong>. Look up values by key. Keys must be unique and non-null.</p>
+    <h3>Stack (LIFO)</h3>
+    <p>Like a stack of plates &mdash; <strong>last in, first out</strong>. Methods: <code>Push()</code>, <code>Pop()</code>, <code>Peek()</code>.</p>
+    <h3>Queue (FIFO)</h3>
+    <p>Like a line at a store &mdash; <strong>first in, first out</strong>. Methods: <code>Enqueue()</code>, <code>Dequeue()</code>, <code>Peek()</code>.</p>
+</section>
+
+<!-- PROPERTIES -->
+<section class="card" id="properties">
+    <h2><span class="section-num">18.</span> Properties</h2>
+    <div class="section-line"></div>
+    <p>Properties are <strong>smart fields</strong>. They look like variables outside, but use <code>get</code>/<code>set</code> methods behind the scenes for controlled access.</p>
+    <div class="table-wrap">
+    <table>
+        <tr><th>Type</th><th>Has Get?</th><th>Has Set?</th></tr>
+        <tr><td>Read &amp; Write</td><td>&#10003;</td><td>&#10003;</td></tr>
+        <tr><td>Read-Only</td><td>&#10003;</td><td>&#10007;</td></tr>
+        <tr><td>Write-Only</td><td>&#10007;</td><td>&#10003;</td></tr>
+        <tr><td>Auto-Implemented</td><td colspan="2">Compiler generates backing field</td></tr>
+    </table>
+    </div>
+<pre><span class="kw">public string</span> Name { <span class="kw">get</span>; <span class="kw">set</span>; }           <span class="cm">// auto-implemented</span>
+<span class="kw">public int</span> Age { <span class="kw">get</span>; <span class="kw">private set</span>; }        <span class="cm">// read-only outside</span></pre>
+</section>
+
+<!-- INDEXERS -->
+<section class="card" id="indexers">
+    <h2><span class="section-num">19.</span> Indexers</h2>
+    <div class="section-line"></div>
+    <p>Indexers let you <strong>use an object like an array</strong> with square bracket syntax <code>obj[index]</code>.</p>
+<pre><span class="kw">class</span> <span class="tp">Shelf</span> {
+    <span class="kw">private string</span>[] books = <span class="kw">new string</span>[<span class="num">3</span>];
+    <span class="kw">public string this</span>[<span class="kw">int</span> i] {
+        <span class="kw">get</span> { <span class="kw">return</span> books[i]; }
+        <span class="kw">set</span> { books[i] = <span class="kw">value</span>; }
+    }
+}
+<span class="tp">Shelf</span> s = <span class="kw">new</span> <span class="tp">Shelf</span>();
+s[<span class="num">0</span>] = <span class="str">"C# in Depth"</span>;</pre>
+</section>
+
+<!-- INTERFACES -->
+<section class="card" id="interfaces">
+    <h2><span class="section-num">20.</span> Interfaces</h2>
+    <div class="section-line"></div>
+    <p>An interface is a <strong>contract</strong>: "any class that implements me must have these methods." Defines <em>what</em> to do, not <em>how</em>. Enables multiple inheritance.</p>
+    <div class="callout callout-purple">
+        <div class="callout-icon">&#128218;</div>
+        <div><strong>Rules:</strong> All members public and abstract by default. No fields. A class can implement multiple interfaces. Convention: prefix with <code>I</code> (e.g., <code>IDisposable</code>).</div>
+    </div>
+<pre><span class="kw">interface</span> <span class="tp">IAnimal</span> { <span class="kw">void</span> Speak(); }
+
+<span class="kw">class</span> <span class="tp">Cat</span> : <span class="tp">IAnimal</span> {
+    <span class="kw">public void</span> Speak() { <span class="tp">Console</span>.WriteLine(<span class="str">"Meow!"</span>); }
+}</pre>
+</section>
+
+<!-- MULTITHREADING -->
+<section class="card" id="multithreading">
+    <h2><span class="section-num">21.</span> Multithreading</h2>
+    <div class="section-line"></div>
+    <p>Imagine cooking dinner while doing laundry. That's multithreading &mdash; <strong>multiple things simultaneously</strong>. Essential for responsive apps so the UI doesn't freeze.</p>
+<pre><span class="kw">using</span> <span class="tp">System.Threading</span>;
+
+<span class="tp">Thread</span> t1 = <span class="kw">new</span> <span class="tp">Thread</span>(() => {
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">5</span>; i++)
+        <span class="tp">Console</span>.WriteLine(<span class="str">"Thread 1: "</span> + i);
+});
+t1.Start();</pre>
+    <div class="callout callout-yellow">
+        <div class="callout-icon">&#9888;&#65039;</div>
+        <div>Thread execution order is unpredictable. Use <code>lock</code> for synchronization and <code>Thread.Sleep()</code> to pause.</div>
+    </div>
+</section>
+
+<!-- REGEX -->
+<section class="card" id="regex">
+    <h2><span class="section-num">22.</span> Regular Expressions</h2>
+    <div class="section-line"></div>
+    <p>Regex is a <strong>pattern-matching language</strong> for text. Validate emails, find phone numbers, extract data. Use <code>Regex</code> from <code>System.Text.RegularExpressions</code>.</p>
+<pre><span class="kw">string</span> pattern = <span class="str">@"^[0-9]{10}$"</span>;   <span class="cm">// exactly 10 digits</span>
+<span class="tp">Regex</span> re = <span class="kw">new</span> <span class="tp">Regex</span>(pattern);
+re.IsMatch(<span class="str">"9925612824"</span>);   <span class="cm">// True</span>
+re.IsMatch(<span class="str">"123"</span>);          <span class="cm">// False</span></pre>
+    <p><strong>Key methods:</strong> <code>IsMatch()</code>, <code>Match()</code>, <code>Replace()</code>, <code>Split()</code></p>
+</section>
+
+<!-- EXCEPTION HANDLING -->
+<section class="card" id="exceptions">
+    <h2><span class="section-num">23.</span> Exception Handling</h2>
+    <div class="section-line"></div>
+    <p>Things go wrong &mdash; files don't exist, networks fail, someone divides by zero. Exception handling lets you <strong>gracefully deal with errors</strong> instead of crashing.</p>
+    <div class="table-wrap">
+    <table>
+        <tr><th>Keyword</th><th>What It Does</th></tr>
+        <tr><td><code>try</code></td><td>Wraps code that might fail</td></tr>
+        <tr><td><code>catch</code></td><td>Handles the error if one occurs</td></tr>
+        <tr><td><code>finally</code></td><td>Runs no matter what &mdash; great for cleanup</td></tr>
+        <tr><td><code>throw</code></td><td>Manually triggers an exception</td></tr>
+    </table>
+    </div>
+<pre><span class="kw">int</span>[] arr = { <span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span> };
+<span class="kw">try</span> {
+    <span class="tp">Console</span>.WriteLine(arr[<span class="num">10</span>]);
+}
+<span class="kw">catch</span> (<span class="tp">IndexOutOfRangeException</span> e) {
+    <span class="tp">Console</span>.WriteLine(<span class="str">"Oops: "</span> + e.Message);
+}
+<span class="kw">finally</span> {
+    <span class="tp">Console</span>.WriteLine(<span class="str">"This always runs."</span>);
+}</pre>
+    <div class="output-box">Oops: Index was outside the bounds of the array.<br>This always runs.</div>
+    <div class="callout callout-green">
+        <div class="callout-icon">&#9989;</div>
+        <div><strong>Pro tip:</strong> Catch specific exceptions (like <code>DivideByZeroException</code>) rather than a generic <code>Exception</code>.</div>
+    </div>
+</section>
+
+<!-- NOTES FOOTER CTA -->
+<div class="card" style="text-align:center;padding:36px 24px;">
+    <h2>Ready to Test What You've Learned?</h2>
+    <div class="section-line" style="margin:0 auto 12px;"></div>
+    <p style="max-width:440px;margin:0 auto 18px;">50 multiple-choice questions covering every topic above. Timed at 30 minutes.</p>
+    <a href="quiz.html" class="btn btn-primary btn-lg">Take the Practice Test</a>
+</div>
+
+</div><!-- end content-with-sidebar -->
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="quiz.html">Practice Test</a>
+        </div>
+        <p>C# Learning Hub &mdash; Free educational resource.</p>
+    </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0})">&#8593;</button>
+<script src="js/app.js"></script>
+</body>
+</html>
