@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Hub - Notes, Quizzes & Online Compiler</title>
+    <meta name="description" content="Free programming notes, practice tests, and an online compiler for C#, Python, Java, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">&#9998;</div>
+            <div class="nav-logo-text">Learning <span>Hub</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="compiler.html">Compiler</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"></button>
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-inner">
+        <a href="index.html" class="active">Home</a>
+        <a href="compiler.html">Compiler</a>
+    </div>
+</div>
+
+<section class="home-hero">
+    <div class="container">
+        <h1>Your Learning Hub</h1>
+        <p>Free, comprehensive notes and practice tests for programming topics. Run code directly in your browser with the built-in compiler.</p>
+        <div class="btn-group">
+            <a href="#topics" class="btn btn-white btn-lg">Browse Topics</a>
+            <a href="compiler.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,.4);">Open Compiler</a>
+        </div>
+    </div>
+</section>
+
+<div class="content-no-sidebar">
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-card fade-in"><div class="val">1</div><div class="lbl">Topics</div></div>
+            <div class="stat-card fade-in"><div class="val">50</div><div class="lbl">Quiz Questions</div></div>
+            <div class="stat-card fade-in"><div class="val">16+</div><div class="lbl">Compiler Languages</div></div>
+            <div class="stat-card fade-in"><div class="val">Free</div><div class="lbl">Always</div></div>
+        </div>
+
+        <div class="section-title" id="topics">
+            <h2>Topics</h2>
+            <div class="section-line"></div>
+            <p>Pick a topic to start learning. More topics are added over time.</p>
+        </div>
+
+        <div class="topic-grid">
+            <a href="csharp/notes.html" class="topic-card">
+                <div class="topic-card-icon icon-purple">&#128736;</div>
+                <h3>C# Programming</h3>
+                <p>Complete guide from basics to advanced &mdash; .NET, OOP, collections, multithreading, and a 50-question practice test.</p>
+            </a>
+            <a href="compiler.html" class="topic-card">
+                <div class="topic-card-icon icon-green">&#9654;</div>
+                <h3>Online Compiler</h3>
+                <p>Write and run Python, Java, C#, JavaScript, C++, Go, Rust, and 16+ languages directly in your browser.</p>
+            </a>
+            <!-- Add new topics here: create a folder (e.g. python/) with notes.html + quiz.html, then add a card -->
+        </div>
+
+        <div class="card" style="text-align:center;padding:40px 24px;margin:32px 0;">
+            <h2>Test Your C# Knowledge</h2>
+            <div class="section-line" style="margin:0 auto 14px;"></div>
+            <p style="max-width:460px;margin:0 auto 20px;">Take the 50-question timed practice test covering every C# topic. See where you stand and identify areas to improve.</p>
+            <a href="csharp/quiz.html" class="btn btn-primary btn-lg">Start C# Practice Test</a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="csharp/notes.html">C# Notes</a>
+            <a href="csharp/quiz.html">C# Quiz</a>
+            <a href="compiler.html">Compiler</a>
+        </div>
+        <p>Learning Hub &mdash; Free educational resource.</p>
+    </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0})">&#8593;</button>
+
+<script src="./js/app.js"></script>
+</body>
+</html>

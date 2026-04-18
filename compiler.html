@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Compiler - Learning Hub</title>
+    <meta name="description" content="Run Python, Java, C#, JavaScript, C++, Go, Rust, and 16+ languages directly in your browser.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">&#9998;</div>
+            <div class="nav-logo-text">Learning <span>Hub</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="compiler.html" class="active">Compiler</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"></button>
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-inner">
+        <a href="index.html">Home</a>
+        <a href="compiler.html" class="active">Compiler</a>
+    </div>
+</div>
+
+<div class="content-no-sidebar">
+    <div class="container">
+        <div style="padding-top:24px;">
+            <h1 style="margin-bottom:4px;">Online Compiler</h1>
+            <p style="margin-bottom:20px;">Write and run code in 16+ languages directly in your browser. Powered by Judge0 CE.</p>
+
+            <div class="compiler-wrap">
+                <div class="compiler-toolbar">
+                    <select id="langSelect" class="compiler-select"></select>
+                    <span id="langInfo" class="compiler-status"></span>
+                    <div style="flex:1;"></div>
+                    <button class="btn btn-primary" id="runBtn" onclick="runCode()">&#9654; Run Code</button>
+                    <button class="btn btn-outline" onclick="clearEditor()">Clear</button>
+                </div>
+
+                <textarea id="codeEditor" class="compiler-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+
+                <div>
+                    <div class="compiler-output-label">Output</div>
+                    <div id="compilerOutput" class="compiler-output"></div>
+                    <div id="runStatus" class="compiler-status" style="margin-top:8px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="compiler.html">Compiler</a>
+        </div>
+        <p>Learning Hub &mdash; Free educational resource.</p>
+    </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0})">&#8593;</button>
+
+<script src="./js/app.js"></script>
+<script src="./js/compiler.js"></script>
+</body>
+</html>
